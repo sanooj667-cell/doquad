@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import { useState } from 'react';
 
 const TeamMember = ({ member, index }) => {
   const [mousePos, setMousePos] = useState({ x: 0, y: 0 });

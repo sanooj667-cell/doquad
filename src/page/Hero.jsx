@@ -1,4 +1,5 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
+import SiteNav from '../components/SiteNav';
 
 const Hero = ({ isDark, toggleDark }) => {
   const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
@@ -43,37 +44,7 @@ const Hero = ({ isDark, toggleDark }) => {
       id="hero"
       className="relative min-h-screen overflow-hidden bg-hero-bg dark:bg-black text-hero-ink dark:text-white/90 font-outfit selection:bg-hero-ink selection:text-hero-bg transition-colors duration-500 snap-start"
     >
-      <header className="absolute top-[4vh] left-[clamp(24px,5.3vw,102px)] right-[clamp(24px,5.3vw,102px)] z-[3] flex items-center justify-between opacity-0 animate-fade-down max-[900px]:top-5 max-[900px]:left-4 max-[900px]:right-4 max-[900px]:flex-wrap max-[900px]:gap-y-3.5">
-        <p className="m-0 text-[clamp(1.1rem,1.4vw,1.6rem)] font-bold tracking-[0.004em]">doquad.in</p>
-        <nav className="flex items-center gap-[clamp(14px,2.5vw,48px)] max-[900px]:w-full max-[900px]:justify-between max-[900px]:gap-2" aria-label="Main Navigation">
-          <a href="#hero" className="text-hero-ink dark:text-black no-underline text-[clamp(0.85rem,1.1vw,1.1rem)] font-bold leading-none transition-all duration-200 hover:-translate-y-0.5 hover:opacity-[0.82] min-w-[clamp(60px,5vw,110px)] px-[clamp(12px,1vw,20px)] py-[clamp(6px,0.4vw,8px)] rounded-full bg-hero-pill text-center max-[900px]:text-[0.9rem] max-[900px]:min-w-[68px] max-[900px]:px-[12px] max-[900px]:py-[6px]">
-            Home
-          </a>
-          <a href="#agenda" className="text-hero-ink dark:text-white/70 no-underline text-[clamp(0.85rem,1.12vw,1.12rem)] font-normal leading-none transition-all duration-200 hover:-translate-y-0.5 hover:opacity-[0.82] max-[900px]:text-[0.9rem]">
-            About
-          </a>
-          <a href="#agenda" className="text-hero-ink dark:text-white/70 no-underline text-[clamp(0.85rem,1.12vw,1.12rem)] font-normal leading-none transition-all duration-200 hover:-translate-y-0.5 hover:opacity-[0.82] max-[900px]:text-[0.9rem]">
-            Project
-          </a>
-          <a href="#agenda" className="text-hero-ink dark:text-white/70 no-underline text-[clamp(0.85rem,1.12vw,1.12rem)] font-normal leading-none transition-all duration-200 hover:-translate-y-0.5 hover:opacity-[0.82] max-[900px]:text-[0.9rem]">
-            Contact
-          </a>
-
-          {/* Theme Toggle */}
-          <button 
-            onClick={toggleDark}
-            className="w-10 h-10 rounded-full bg-hero-pill/20 dark:bg-white/10 flex items-center justify-center transition-all duration-300 hover:scale-110 active:scale-95 group overflow-hidden relative"
-            aria-label="Toggle dark mode"
-          >
-            <div className={`transition-transform duration-500 absolute inset-0 flex items-center justify-center ${isDark ? '-translate-y-full' : 'translate-y-0'}`}>
-              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-hero-ink"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/></svg>
-            </div>
-            <div className={`transition-transform duration-500 absolute inset-0 flex items-center justify-center ${isDark ? 'translate-y-0' : 'translate-y-full'}`}>
-              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-white"><circle cx="12" cy="12" r="4"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="m4.93 4.93 1.41 1.41"/><path d="m17.66 17.66 1.41 1.41"/><path d="M2 12h2"/><path d="M22 12h2"/><path d="m4.93 19.07 1.41-1.41"/><path d="m17.66 6.34 1.41-1.41"/></svg>
-            </div>
-          </button>
-        </nav>
-      </header>
+      <SiteNav isDark={isDark} toggleDark={toggleDark} />
 
       {/* Background Orbs */}
       <span className="absolute rounded-full will-change-transform top-[14%] left-[7%] w-[clamp(230px,22vw,424px)] h-[clamp(230px,22vw,424px)] bg-gradient-to-r from-[#b7ddbe] to-[#85b68a] dark:from-hero-ink/40 dark:to-[#056739]/50 animate-float-a [animation-delay:-1.1s] max-[900px]:opacity-[0.32] max-[900px]:scale-[0.58] max-[900px]:animate-none transition-all duration-700 hover:duration-[3000ms] ease-out cursor-default" style={{ ...parallaxStyle(1.5) }} aria-hidden="true" />
